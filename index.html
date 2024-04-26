@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Готель</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <nav
@@ -15,22 +20,37 @@
         <a class="navbar-brand" href="index.html"
           ><img src="imgs/logo.png" alt="Five Hotel"
         /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#show-menu"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
         <div class="collapse navbar-collapse" id="show-menu">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a>Головна <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#home"
+                >Головна <span class="sr-only">(current)</span></a
+              >
             </li>
             <li class="nav-item">
-              <a>Кімнати</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a>Особливості</a>
+              <a class="nav-link" href="#room">Кімнати</a>
             </li>
             <li class="nav-item">
-              <a>Блог</a>
+              <a class="nav-link" href="#"> Особливості </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#blog">Блог</a>
             </li>
             <li class="nav-item">
-              <a>Контакти</a>
+              <a class="nav-link" href="#contact">Контакти</a>
             </li>
           </ul>
         </div>
@@ -62,11 +82,7 @@
           <div id="headerslider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item carousel-three active"></div>
-              <div class="carousel-item carousel-two"></div>
-              <div class="carousel-item carousel-one"></div>
             </div>
-            <span class="sr-only">Особливості</span>
-            <span class="sr-only">Далі</span>
           </div>
         </div>
       </div>
@@ -88,7 +104,7 @@
               комусь просто необхідно розслабитися в атмосфері розкоші і
               комфорту.
             </p>
-            <button><span>Читати далі</span></button>
+            <button><a href="#">Читати далі</a></button>
           </div>
           <div class="col-lg-6 col-12">
             <div class="img"></div>
@@ -113,7 +129,7 @@
                   двоспальне ліжком.
                 </p>
                 <button>
-                  <span class="text-capitalize">Читати далі</span>
+                  <a href="#" class="text-capitalize">Читати далі</a>
                 </button>
               </div>
             </div>
@@ -142,17 +158,20 @@
     </div>
 
     <div class="slider main-font-family">
-      <h2 class="text-calitalize text-center">ЩО ГОВОРЯТЬ НАШІ КЛІЄНТИ</h2>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="carousel-caption d-block">
-            <img src="imgs/pic7.png" alt="Фото користувача з відгуків" />
-            <h5>Джон</h5>
-            <p>
-              Давно встановлено, що читач відволікатиметься на читабельний вміст
-              сторінки, дивлячись на її макет. Сенс використання Lorem Ipsum
-              полягає в тому, що він має більш-менш нормальний розподіл букв,
-            </p>
+      <h2 class="text-center text-capitalize main-font-family">
+        ЩО ГОВОРЯТЬ НАШІ КЛІЄНТИ
+      </h2>
+      <div id="slideToNext" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="carousel-caption d-block">
+              <img src="imgs/pic7.png" alt="Фото користувача з відгуків" />
+              <h5>Джон</h5>
+              <p>
+                Давно встановлено, що читач відволікатиметься на вміст сторінки,
+                дивлячись на її макет.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -220,5 +239,23 @@
         </div>
       </div>
     </footer>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      $(function () {
+        "use strict";
+
+        var winH = $(window).height();
+
+        $("header").height(winH);
+
+        $(".navbar ul.navbar-nav li a").on("click", function (e) {
+          var getAttr = $(this).attr("href");
+
+          e.preventDefault();
+          $("html").animate({ scrollTop: $(getAttr).offset().top }, 1000);
+        });
+      });
+    </script>
   </body>
 </html>

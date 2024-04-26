@@ -151,7 +151,7 @@ header input[type="submit"] {
   right: 0;
   border: none;
   height: 40px;
-  background-color: #c70000;
+  background-color: #cc0000;
   color: white;
 }
 
@@ -313,17 +313,14 @@ header button a {
   transform: skew(-25deg);
 }
 
-.about button span {
+.about button a {
   color: #000;
   padding: 10px 50px;
   display: block;
   float: left;
   transform: skew(25deg);
 }
-.about button:hover {
-  cursor: pointer;
-  border: none;
-}
+
 .about .container > .row:first-of-type {
   margin-bottom: 50px;
 }
